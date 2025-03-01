@@ -101,6 +101,66 @@ const Product = () => {
           
           
         </div>
+        <div className='price-list'>
+            <h1>KTM Bikes Price List</h1>
+            <div className='price-box'>
+                <div className='price-btns'>
+                    <button>Duke price</button>
+                    <button>RC price</button>
+                    <button>Travel price</button>
+                    <button>motocross price</button>
+                    <button>motocross price</button>
+                </div>
+                <h2>DUKE PRICE LIST</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>VARIANTS</td>
+                            <td>PRICE</td>
+                            <td>SPECIFICATION</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr>
+                            <td>KTM 1390 SUPER DUKE R</td>
+                            <td>22,95,800/-</td>
+                            <td>Click to View</td>
+                        </tr>
+                       <tr>
+                            <td>KTM 890 DUKE R</td>
+                            <td>15,80,000/-</td>
+                            <td>Click to View</td>
+                        </tr>
+                       <tr>
+                            <td>KTM 390 DUKE</td>
+                            <td>2,95,000/-</td>
+                            <td>Click to View</td>
+                        </tr>
+                       <tr>
+                            <td>KTM 250 DUKE</td>
+                            <td>2,25,531/-</td>
+                            <td>Click to View</td>
+                        </tr>
+                       <tr>
+                            <td>KTM 200 DUKE</td>
+                            <td>2,03,950/-</td>
+                            <td>Click to View</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <div>
+                <span>Terms & Conditions</span>
+                <span>Disclaimer</span>
+                <span>Privacy policy</span>
+            </div>
+            <div>
+                <span>Copyright © 2024 Bajaj Auto Ltd. All rights reserved</span>
+            </div>
+        </footer>
     </div>
   )
 }

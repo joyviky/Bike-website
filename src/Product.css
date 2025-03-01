@@ -109,3 +109,78 @@ ul{
     background-color: #F1F1F1;
     height: 500px;
 }
+.price-list{
+    padding: 50px;
+    background-color: #F6F6F6;
+}
+.price-list h1{
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+.price-box{
+    background-color: #FFFFFF;
+    padding: 20px;
+}
+.price-btns button{
+    border:none;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    border:2px solid var(--main);
+    font-weight: 700;
+    margin-right: 20px;
+    background: transparent;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.price-btns button:nth-child(1){
+    background-color: var(--main);
+    color:#fff;
+}
+.price-list h2{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing:1px;
+}
+table{
+    width: 100%;
+    font-size: 20px;
+    border-collapse: collapse;
+}
+
+tr{
+    height: 80px;
+    
+}
+tr td{
+    padding: 0 20px;
+    font-weight: 600;
+}
+thead{
+    background-color: #F2F2F2;
+    text-transform: uppercase;
+    font-weight: 800 !important;
+}
+thead tr td{
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+tbody tr td:nth-child(3){
+    color: var(--main);
+    text-decoration: underline;
+    cursor: pointer;
+}
+footer{
+    background-color: #252525;
+    font-size: 15px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding:0 30px;
+    align-items: center;
+    color: #fff;
+}
+footer span{
+    margin: 0 10px;
+}
