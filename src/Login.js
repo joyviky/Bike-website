@@ -28,7 +28,7 @@ const Login = () => {
     <div className="container">
        <div className="form">
         <h1 className="title">Login</h1>
-        <input type="text" placeholder='Username' id="namebox"></input>
+        <input type="text" placeholder='Username' id="namebox" autoComplete='off'></input>
         {isError&& <p className='wrong'>Invalid username & password</p>}
         <input type="password" placeholder='Password' id="passbox"></input>
         <div class="row">
