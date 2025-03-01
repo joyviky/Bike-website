@@ -1,0 +1,151 @@
+document.addEventListener('DOMContentLoaded', () => {
+    loadStateJsonFromApi();
+});
+var defaultcity = "";
+var defaultstatecode = "";
+function stateDropdownDefaultfun() {
+    if ((defaultstatecode != null && defaultstatecode != "") && (defaultcity != null && defaultcity != "")) {
+        const filterstatedata = statesJsonResponse.filter(state => state.statecode == defaultstatecode);
+        var statevalue = filterstatedata[0].state;
+
+        document.getElementById("stateSelect").value = statevalue;
+        document.getElementById("stateCode").value = defaultstatecode;
+        document.getElementById("stateDropdown").classList.add("hide");
+        document.getElementById("citySelect").value = '';
+        stateChangeEventListener();
+        cityDropdownDefaultfun();
+    }
+}
+function cityDropdownDefaultfun() {
+    if (defaultcity != null && defaultcity != "") {
+        var filtercitydata = cityJsonResponse.filter(state => state.city == defaultcity);
+        var cityvalue = filtercitydata[0].city;
+        var cityId = document.getElementById('citySelect');
+        var buttonText = document.getElementById('buttonId');
+        document.getElementById("citySearchInput").classList = cityvalue;
+        cityId.value = cityvalue;
+
+
+        //document.getElementById('verifyOTP').style.display = 'block';
+    }
+}
+
+function loadStateJsonFromApi() {
+    const targetElement = $("#stateDropdown .list-section");
+    $.ajax({
+        async: true,
+        url: "/api/state/getStateList?bu=MC",
+        type: "get",
+        success: function (result) {
+         
+
+            if (result.IsRequestSuccessfull) {
+
+                statesJsonResponse = result.Data;
+                for (var index = 0; index < statesJsonResponse.length; index++) {
+                    const template = document.getElementById("stateElement");
+                    const clone = template.content.firstElementChild.cloneNode(true);
+                    let state = statesJsonResponse[index]["ValueName"];
+                    let stateCode = statesJsonResponse[index]["ValueCode"];
+                    clone.addEventListener("click", function () {
+                        stateDrpdwnEventHandler(state, stateCode);
+                    });
+                    clone.innerText = state;
+                    targetElement.append(clone);
+                }
+                stateDropdownDefaultfun();
+            }
+        },
+        beforeSend: function (request) {
+            let token = $("#jwtAuthToken").val();
+            request.setRequestHeader("Authorization", "Bearer " + token);
+        },
+        error: function () {
+            console.log("Error retrieving State value");
+        }
+    })
+}
+function stateChangeEventListener() {
+
+    var code = $("#stateCode").val();
+    var cityApiUrl =  "/api/city/getCityList?bu=PB&stateCode=" + code;
+    const targetElement = $("#citiesDropdown .list-section");
+
+    $.ajax({
+        async: true,
+        url: cityApiUrl,
+        type:"get",
+        success: function (result) {
+          
+            if (result.IsRequestSuccessfull) {
+
+                cityJsonResponse = result.Data;
+
+                for (var index = 0; index < cityJsonResponse.length && cityJsonResponse[0]["cityName"] != ''; index++) {
+                    const template = document.getElementById("cityElement");
+                    const clone = template.content.firstElementChild.cloneNode(true);
+                    let cityName = cityJsonResponse[index]["ValueName"];
+                    let cityCode = cityJsonResponse[index]["ValueCode"];
+
+                    clone.addEventListener("click", function () {
+                        cityDropdownEventListener(cityName, cityCode);
+                    });
+                    clone.innerText = cityName;
+                    targetElement.append(clone);
+                }
+            }
+        },
+        beforeSend: function (request) {
+
+            toggleDropdownLoader(targetElement, true);
+            let token = $("#jwtAuthToken").val();
+            request.setRequestHeader("Authorization", "Bearer " + token);
+        },
+        error: function () {
+            console.log("Error retrieving City when State change");
+        },
+        complete: function () {
+            toggleDropdownLoader();
+        }
+    })
+}
+function getExShowroomPrice() {
+
+    const locSubmitButton = $("#locationSubmitBtn");
+    var priceApiUrl =  "/api/ModelPriceByState";
+    var request = {
+       
+        "stateCode": $("#stateCode").val(),
+        "itemId": itemId
+    };
+
+    $.ajax({
+        async: true,
+        url: priceApiUrl, data: request,
+        success: function (response) {
+            if (response.IsRequestSuccessfull) {
+                var price = Number(response.Result);
+                if (price != 0 && price != NaN) {
+                    $("#ex-showroom-price > span").text(price.toLocaleString("hi-IN").replace(/\,/g, " "));
+
+                    $(".loc-link").text($("#citySelect").val());
+
+                    
+                }
+            }
+        },
+        beforeSend: function (request) {
+            toggleButtonLoader(locSubmitButton, true);
+            let token = $("#jwtAuthToken").val();
+            request.setRequestHeader("Authorization", "Bearer " + token);
+        },
+        error: function () {
+            console.log("Error retrieving ex-showroom price for the selected State");
+        },
+        complete: function () {
+
+            toggleButtonLoader(locSubmitButton);
+            locationClose();
+        }
+    })
+}

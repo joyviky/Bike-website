@@ -1,0 +1,66 @@
+var langArray = [];
+$('.vodiapicker option').each(function () {
+  var img = $(this).attr("data-thumbnail");
+  var text = this.innerText;
+  var value = $(this).val();
+  var item = '<li><img src="' + img + '" alt="" value="' + value + '"/><span>' + text + '</span></li>';
+  langArray.push(item);
+})
+
+$('#a').html(langArray);
+
+//Set the button value to the first el of the array
+$('.btn-select').html(langArray[0]);
+$('.btn-select').attr('value', 'en');
+
+//change button stuff on click
+$('#a li').click(function () {
+  var img = $(this).find('img').attr("src");
+  var value = $(this).find('img').attr('value');
+  var text = this.innerText;
+  var item = '<li><img src="' + img + '" alt="" /><span>' + text + '</span></li>';
+  $('.btn-select').html(item);
+  $('.btn-select').attr('value', value);
+  $(".b").toggle();
+  //console.log(value);
+});
+
+$(".btn-select").click(function () {
+  $(".b").toggle();
+});
+
+//check local storage for the lang
+var sessionLang = localStorage.getItem('lang');
+if (sessionLang) {
+  //find an item with value of sessionLang
+  var langIndex = langArray.indexOf(sessionLang);
+  $('.btn-select').html(langArray[langIndex]);
+  $('.btn-select').attr('value', sessionLang);
+} else {
+  var langIndex = langArray.indexOf('ch');
+
+  $('.btn-select').html(langArray[langIndex]);
+  //$('.btn-select').attr('value', 'en');
+}
+
+
+if ($(window).width() < 1081) {
+  $(".footer-link-style h5, .footer-link-style h6").click(function (event) {
+    if ($(this).hasClass('show') == true) {
+      $(".footer-link-style h5, .footer-link-style h6").removeClass('show');
+      $(this).next(".footer-link-style ul.sub-menu").slideUp();
+      $(this).next().next(".footer-link-style ul.sub-menu2").slideUp();
+      if ($(event.target).hasClass('first-level')) {
+        return; // Do nothing if clicked on the accordion icon
+      }
+      window.location = $(this).find('a').attr('href');
+      return false;
+    }
+    $(".footer-link-style ul.sub-menu").slideUp();
+    $(".footer-link-style ul.sub-menu2").slideUp();
+    $(".footer-link-style h5, .footer-link-style h6").removeClass('show');
+    $(this).addClass('show');
+    $(this).next(".footer-link-style ul.sub-menu").slideDown();
+    $(this).next().next(".footer-link-style ul.sub-menu2").slideDown();
+  });
+}

@@ -1,0 +1,225 @@
+﻿var priceNotAvailableMessage = "Price not available";
+var emiNotAvailableMessage = "";//"Error in getting EMI value";
+
+var defaultState = "";//"Delhi";
+var defaultCity = "";//"New Delhi";
+
+var state = defaultState;
+var city = defaultCity;
+
+var arrShowRoomPriceJson = [];
+
+$(function () {
+    fnReadyForPrice();
+})
+
+function fnReadyForPrice()
+{
+    if($(".price-mc").length > 0) {
+        //fnLoadMCPriceJSON();
+        fnDisplayPriceOnUserInterface();
+    }
+}
+
+function fnNumberWithSpace(x) {
+    return x.toString().replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, " ") + "/-";
+}
+
+function fnLoadMCPriceJSON() {
+    $.ajax({
+        async: false, url: "/handlers/bajaj-bikes/price/get-mc-price-data.ashx", success: function (result) {
+            arrShowRoomPriceJson = result;
+            fnDisplayPriceOnUserInterface();
+        },
+        complete: function (result) {
+          
+        },error: function () {
+            console.log("price error");
+            arrShowRoomPriceJson = [];
+        }
+    }) 
+}
+
+function fnDisplayPriceOnUserInterface() {
+    // Update price based on state and city
+    $(".price-mc").each(function () {
+        var modelCode = $(this).data("modelcode");
+        var modelName = $(this).data("modelname");
+        var price = priceNotAvailableMessage;  // Default value for price when not found
+
+        if (typeof modelName != "undefined" && modelName != "") {
+            for (var index = 0; index < arrKTMHusqvarnaPrice.length; index++) {
+                if (arrKTMHusqvarnaPrice[index].productName.toLowerCase() == modelName.toLowerCase()) {
+                    price = arrKTMHusqvarnaPrice[index].productPrice;
+                    // Check if price is valid or not (empty string, null, undefined)
+                    if (price == null || price === "" || price === "null" || price === "undefined") {
+                        price = "Coming soon";
+                    } else {
+                        price = parseFloat(price);
+                        // Check if the parsed value is a number
+                        if (isNaN(price)) {
+                            price = "Coming soon";
+                        } else {
+                            price = fnNumberWithSpace(price);
+                        }
+                    }
+                    $(this).html(price);
+                }
+            }
+        } else {
+            if (state == "" && city == "") {
+                state = "Delhi"; city = "New Delhi";
+            }
+            if (arrShowRoomPriceJson[state][city] != undefined && arrShowRoomPriceJson[state][city][modelCode] != undefined) {
+                try {
+                    price = parseFloat(arrShowRoomPriceJson[state][city][modelCode].price);
+                    // Check if the parsed value is a number
+                    if (isNaN(price)) {
+                        price = "Coming soon";
+                    } else {
+                        price = fnNumberWithSpace(price);
+                    }
+                } catch (err) {
+                    price = "Coming soon"; // Fallback for errors
+                }
+            }
+            $(this).html(price);
+        }
+    });
+
+    if ($("#fld_mc_price_state").length > 0) {
+        fnBindPriceState();
+    }
+}
+
+var arrKTMHusqvarnaPrice = [
+    {
+        "productName": "KTM 390 Adventure", productPrice: "367699"
+    },
+    {
+        "productName": "KTM 390 Adventure X", productPrice: "291140"
+    },
+    {
+        "productName": "2023 KTM 390 ADVENTURE", productPrice: "364142"
+    },
+    {
+        "productName": "KTM 250 Adventure", productPrice: "259850"
+    },
+    {
+        "productName": "KTM 390 Duke", productPrice: "295000"
+    },
+    {
+        "productName": "KTM 250 Duke", productPrice: "225531"
+    },
+    {
+        "productName": "KTM 200 Duke", productPrice: "203950"
+    },
+    {
+        "productName": "KTM 125 Duke", productPrice: "181030"
+    },
+    {
+        "productName": "KTM RC 390", productPrice: "321946"
+    },
+    {
+        "productName": "Husqvarna Svartpilen 250", productPrice: "293165"
+    },
+    {
+        "productName": "Husqvarna Vitpilen 250", productPrice: "220141"
+    },
+    {
+        "productName": "KTM RC 125", productPrice: "191795"
+    },
+    {
+        "productName": "KTM RC 200", productPrice: "220819"
+    },
+    {
+        "productName": "KTM 890 DUKE R", productPrice: "1450000"
+    },
+    {
+        "productName": "KTM 890 ADVENTURE R", productPrice: "1580000"
+    },
+    {
+        "productName": "KTM 350 EXC-F SIX DAYS", productPrice: "1295800"
+    },
+    {
+        "productName": "KTM 1390 SUPER DUKE R", productPrice: "2295800"
+    },
+    {
+        "productName": "KTM 1290 SUPER ADVENTURE S", productPrice: "2273900"
+    },
+    {
+        "productName": "KTM 450 SX-F", productPrice: "1025100"
+    },
+    {
+        "productName": "KTM 250 SX-F", productPrice: "958000"
+    },
+    {
+        "productName": "KTM 85 SX", productPrice: "669000"
+    },
+    {
+        "productName": "KTM 65 SX", productPrice: "546500"
+    },
+    {
+        "productName": "KTM 50 SX", productPrice: "475000"
+    }
+]
+
+function fnGetKeyNamesFromJsonData(jsonDataObject) {
+    var arrKeyNames = [];
+    for (var keyName in jsonDataObject) {
+        if (jsonDataObject.hasOwnProperty(keyName)) {
+            arrKeyNames.push(keyName);
+        }
+    }
+    return arrKeyNames.sort();
+}
+
+function fnBindPriceState() {
+    var stateData = "";
+    var arrStates = fnGetKeyNamesFromJsonData(arrShowRoomPriceJson);
+    stateData += "<option value=''>Select State*</option>";
+    for (var index = 0; index < arrStates.length; index++) {
+        stateData += "<option value='" + arrStates[index] + "'>" + arrStates[index] + "</option>";
+    }
+    $("#fld_mc_price_state").html(stateData);
+}
+function fnChangeCityStateGlobalVariable() {
+    if ($("#fld_mc_price_state").val() != "" && $("#fld_mc_price_city").val() != "") {
+        state = $("#fld_mc_price_state").val();
+        city = $("#fld_mc_price_city").val();
+        latitude = "";
+        longitude = "";
+        fnDisplayPriceOnUserInterface();   
+        $(".closepop").click();
+        fnDisplayCityNameOnUserInterface();
+        $.cookie("state", state);
+        $.cookie("city", city);
+    }
+    else {
+        alert("Please select state and city to proceed");
+    }
+}
+function fnDisplayCityNameOnUserInterface() {
+    // Update city 
+    $(".cahnge-city").each(function () {
+        if (city != "") {
+            $(this).html(city);
+        }
+        else {
+            $(this).html("New Delhi");
+        }
+    });
+}
+function fnBindPriceCities() {
+    var cityData = "";
+    cityData += "<option value=''>Select City*</option>";
+    var espSelectedState = $("#fld_mc_price_state").val();
+    var arrCities = fnGetKeyNamesFromJsonData(arrShowRoomPriceJson[espSelectedState]);
+
+    for (var index = 0; index < arrCities.length; index++) {
+        cityData += "<option value='" + arrCities[index] + "'>" + arrCities[index] + "</option>";
+    }
+    $("#fld_mc_price_city").html(cityData);
+    $("#fld_mc_price_city").get(0).selectedIndex = 0;
+}
+

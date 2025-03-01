@@ -1,0 +1,294 @@
+@font-face {
+  font-family: 'AccordAltBold';
+  src: url("/fonts/AccordAltBold Bold.eot");
+  src: url("/fonts/AccordAltBold Bold.eot?#iefix") format("embedded-opentype"), url("/fonts/AccordAltBold Bold.woff2") format("woff2"), url("/fonts/AccordAltBold Bold.woff") format("woff"), url("/fonts/AccordAltBold Bold.svg#AccordAltBold Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE; }
+@font-face {
+  font-family: 'AccordAltExtraBold';
+  src: url("/fonts/AccordAltExtraBold ExtraBold.eot");
+  src: url("/fonts/AccordAltExtraBold ExtraBold.eot?#iefix") format("embedded-opentype"), url("/fonts/AccordAltExtraBold ExtraBold.woff2") format("woff2"), url("/fonts/AccordAltExtraBold ExtraBold.woff") format("woff"), url("/fonts/AccordAltExtraBold ExtraBold.svg#AccordAltExtraBold ExtraBold") format("svg");
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE; }
+@font-face {
+  font-family: 'AccordAltExtraLight';
+  src: url("/fonts/AccordAltExtraLight ExtraLight.eot");
+  src: url("/fonts/AccordAltExtraLight ExtraLight.eot?#iefix") format("embedded-opentype"), url("/fonts/AccordAltExtraLight ExtraLight.woff2") format("woff2"), url("/fonts/AccordAltExtraLight ExtraLight.woff") format("woff"), url("/fonts/AccordAltExtraLight ExtraLight.svg#AccordAltExtraLight ExtraLight") format("svg");
+  font-weight: 250;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE; }
+@font-face {
+  font-family: 'AccordAltLight';
+  src: url("/fonts/AccordAltLight Light.eot");
+  src: url("/fonts/AccordAltLight Light.eot?#iefix") format("embedded-opentype"), url("/fonts/AccordAltLight Light.woff2") format("woff2"), url("/fonts/AccordAltLight Light.woff") format("woff"), url("/fonts/AccordAltLight Light.svg#AccordAltLight Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE; }
+@font-face {
+  font-family: 'AccordAltMedium';
+  src: url("/fonts/AccordAltMedium Medium.eot");
+  src: url("/fonts/AccordAltMedium Medium.eot?#iefix") format("embedded-opentype"), url("/fonts/AccordAltMedium Medium.woff2") format("woff2"), url("/fonts/AccordAltMedium Medium.woff") format("woff"), url("/fonts/AccordAltMedium Medium.svg#AccordAltMedium Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE; }
+@font-face {
+  font-family: 'AccordAltRegular';
+  src: url("/fonts/AccordAltRegular Regular.eot");
+  src: url("/fonts/AccordAltRegular Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/AccordAltRegular Regular.woff2") format("woff2"), url("/fonts/AccordAltRegular Regular.woff") format("woff"), url("/fonts/AccordAltRegular Regular.svg#AccordAltRegular Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE; }
+@font-face {
+  font-family: 'AccordAltThin';
+  src: url("/fonts/AccordAltThin Thin.eot");
+  src: url("/fonts/AccordAltThin Thin.eot?#iefix") format("embedded-opentype"), url("/fonts/AccordAltThin Thin.woff2") format("woff2"), url("/fonts/AccordAltThin Thin.woff") format("woff"), url("/fonts/AccordAltThin Thin.svg#AccordAltThin Thin") format("svg");
+  font-weight: 250;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE; }
+@font-face {
+  font-family: 'rupee_foradian1-webfont';
+  src: url("/fonts/rupee_foradian1-webfont.eot");
+  src: url("/fonts/rupee_foradian1-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/rupee_foradian1-webfont.woff") format("woff"), url("/fonts/rupee_foradian1-webfont.ttf") format("truetype"), url("/fonts/rupee_foradian1-webfont.svg#rupee_foradian1-webfont") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+	font-family: 'Conv_Blender-Pro-Heavy';
+	src: url('/fonts/Blender-Pro-Heavy.eot');
+	src: local('☺'), url('/fonts/Blender-Pro-Heavy.woff') format('woff'), url('/fonts/Blender-Pro-Heavy.ttf') format('truetype'), url('/fonts/Blender-Pro-Heavy.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'TradeGothicLT';
+    src: url('/fonts/TradeGothicLT.eot');
+    src: url('/fonts/TradeGothicLT.eot') format('embedded-opentype'),
+         url('/fonts/TradeGothicLT.woff2') format('woff2'),
+         url('/fonts/TradeGothicLT.woff') format('woff'),
+         url('/fonts/TradeGothicLT.ttf') format('truetype'),
+         url('/fonts/TradeGothicLT.svg#TradeGothicLT') format('svg');
+}
+.rupeesymbol {
+  font-family: 'rupee_foradian1-webfont';
+  margin: 0 5px 0 5px;
+  font-size: 18px; }
+
+  /*ktm product fonts **/
+
+  @font-face {
+    font-family: 'TradeGothic LT CondEighteen';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-BoldCondTwentyObl.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldCondTwentyObl.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldCondTwentyObl.svg#TradeGothicLT-BoldCondTwentyObl') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT CondEighteen';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-BoldCondTwenty.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldCondTwenty.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldCondTwenty.svg#TradeGothicLT-BoldCondTwenty') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blender Pro';
+    src: url('/fonts/Ktm-Font/BlenderPro-Heavy.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/BlenderPro-Heavy.woff') format('woff'),
+        url('/fonts/Ktm-Font/BlenderPro-Heavy.svg#BlenderPro-Heavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT Extended';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-BoldExtended.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldExtended.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldExtended.svg#TradeGothicLT-BoldExtended') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-BoldTwo.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldTwo.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldTwo.svg#TradeGothicLT-BoldTwo') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-BoldOblique.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldOblique.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-BoldOblique.svg#TradeGothicLT-BoldOblique') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT CondEighteen';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-CondEighteenObl.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-CondEighteenObl.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-CondEighteenObl.svg#TradeGothicLT-CondEighteenObl') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT CondEighteen';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-CondEighteen.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-CondEighteen.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-CondEighteen.svg#TradeGothicLT-CondEighteen') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('//fonts/Ktm-Font/TradeGothicLT-BoldTwoOblique.woff2') format('woff2'),
+        url('//fonts/Ktm-Font/TradeGothicLT-BoldTwoOblique.woff') format('woff'),
+        url('//fonts/Ktm-Font/TradeGothicLT-BoldTwoOblique.svg#TradeGothicLT-BoldTwoOblique') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-Bold.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-Bold.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-Bold.svg#TradeGothicLT-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-Oblique.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-Oblique.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-Oblique.svg#TradeGothicLT-Oblique') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('/fonts/Ktm-Font/TradeGothicLT.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT.svg#TradeGothicLT') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-LightOblique.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-LightOblique.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-LightOblique.svg#TradeGothicLT-LightOblique') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-Light.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-Light.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-Light.svg#TradeGothicLT-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TradeGothic LT Extended';
+    src: url('/fonts/Ktm-Font/TradeGothicLT-Extended.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLT-Extended.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLT-Extended.svg#TradeGothicLT-Extended') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Trade Gothic LT Com Cn';
+    src: url('/fonts/Ktm-Font/TradeGothicLTCom-BdCn20.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLTCom-BdCn20.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLTCom-BdCn20.svg#TradeGothicLTCom-BdCn20') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Trade Gothic LT Std';
+    src: url('/fonts/Ktm-Font/TradeGothicLTStd-BdCn20.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLTStd-BdCn20.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLTStd-BdCn20.svg#TradeGothicLTStd-BdCn20') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Trade Gothic LT Std';
+    src: url('/fonts/Ktm-Font/TradeGothicLTStd.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLTStd.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLTStd.svg#TradeGothicLTStd') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Trade Gothic LT Com';
+    src: url('/fonts/Ktm-Font/TradeGothicLTCom.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLTCom.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLTCom.svg#TradeGothicLTCom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Trade Gothic LT Std';
+    src: url('/fonts/Ktm-Font/TradeGothicLTStd-Cn18.woff2') format('woff2'),
+        url('/fonts/Ktm-Font/TradeGothicLTStd-Cn18.woff') format('woff'),
+        url('/fonts/Ktm-Font/TradeGothicLTStd-Cn18.svg#TradeGothicLTStd-Cn18') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TradeGothicLTBold';
+    src: url('/fonts/TradeGothicLTBold.eot');
+    src: url('/onts/TradeGothicLTBold.eot') format('embedded-opentype'),
+         url('/fonts/TradeGothicLTBold.woff2') format('woff2'),
+         url('/fonts/TradeGothicLTBold.woff') format('woff'),
+         url('/fonts/TradeGothicLTBold.ttf') format('truetype'),
+         url('/fonts/TradeGothicLTBold.svg#TradeGothicLTBold') format('svg');
+}
+/**ktm end of product fonts**/

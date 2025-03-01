@@ -1,0 +1,99 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: url(./3.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-content: center;
+    color:#fff;
+    
+}
+:root{
+    --main:rgb(14, 14, 36);
+}
+.form{
+    width: 450px;
+    height: 480px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border:2px solid #ffffff10;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 0 30px ;
+    box-sizing: border-box;
+    user-select: none;
+}
+.title{
+    text-align: center;
+    
+    font-weight: 500;
+    
+}
+#namebox,#passbox{
+    width: 95%;
+    border:none;
+    background-color: transparent;
+    border: 2px solid #ffffff3a;
+    font-size: 18px;
+    padding: 15px 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    outline: none;
+}
+#namebox::placeholder,#passbox::placeholder{
+    color: rgb(39, 36, 36);
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.btn{
+    width: 100%;
+    background-color: transparent;
+    
+    font-size: 20px;
+    border:none;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color:rgb(0, 0, 0);
+    border: 2px solid ;
+    border-color: #ffffff3a;
+    color:#ffffff81;
+    transition: 0.1s linear;
+}
+h3{
+    text-align: center;
+    font-weight: 500 ;
+    cursor: pointer;
+    font-size: 18px;
+}
+h3 span{
+    font-weight: 700 !important;
+}
+.check label{
+    cursor: pointer;
+}
+.bold{
+    font-weight: 400 !important;
+}
+.btn:hover{
+    background-color: #ffffff1a;
+    letter-spacing: 1px;
+}
+.wrong{
+    position: absolute;
+    top: 219px;
+    font-size: 12px;
+    padding-left: 3px;
+    color:rgb(255, 0, 0);
+    font-weight: 700;
+}
